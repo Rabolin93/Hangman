@@ -498,6 +498,7 @@ void dopisywanie(int kategoria1)
     printf("Podaj nowe slowo. Aby zakonczyc wpisywanie podaj #\n");
     while ((fscanf(stdin,"%99s",slowo) ==1) && (slowo[0]!= '#') )
     fprintf(fp,"%s",slowo);
+    fprintf(fp,"/n");
     printf("Dziekuje, slowo zostalo dodane :)\n\n\n\n");
     fclose(fp);
 
