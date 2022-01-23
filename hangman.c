@@ -3,65 +3,8 @@
 #include <time.h>
 #include <stdlib.h>
 
-void szubienica(int bledy)
-{
-//SZUBIENICA PROTOTYP
-    if(bledy==1)
-    {
-    printf("__________\n");
-    printf("|        |\n");
-    printf("¯¯¯¯¯¯¯¯¯¯");
-    }
-
-    if(bledy==2)
-{
-    printf("     |     \n");
-    printf("     |     \n");
-    printf("     |     \n");
-    printf("     |     \n");
-    printf("     |     \n");
-    printf("__________\n");
-    printf("|        |\n");
-    printf("¯¯¯¯¯¯¯¯¯¯");
-}
-    if(bledy==3)
-    {
-    printf("      ______\n");
-    printf("     |     |\n");
-    printf("     |     |\n");
-    printf("     |     \n");
-    printf("     |     \n");
-    printf("     |     \n");
-    printf("__________\n");
-    printf("|        |\n");
-    printf("¯¯¯¯¯¯¯¯¯¯");
-    }
-        if(bledy==4)
-    {
-    printf("      ______\n");
-    printf("     |     |\n");
-    printf("     |     |\n");
-    printf("     |    (¯)\n");
-    printf("     |     \n");
-    printf("     |     \n");
-    printf("__________\n");
-    printf("|        |\n");
-    printf("¯¯¯¯¯¯¯¯¯¯");
-    }
-        if(bledy==5)
-    {
-    printf("      ______\n");
-    printf("     |     |\n");
-    printf("     |     |\n");
-    printf("     |    (¯)\n");
-    printf("     |     |\n");
-    printf("     |    / \\ \n");
-    printf("__________\n");
-    printf("|        |\n");
-    printf("¯¯¯¯¯¯¯¯¯¯");
-
-    }
-}
+void szubienica(int);
+void dopisywanie(int);
 
 
 
@@ -90,14 +33,17 @@ int main()
     if(jezyk==1) // JEZYK POLSKI
     {
         //MENU
-
+        int flag;
+        flag=0;
+    menu:
         printf("Witaj w grze ""Wiselec"" \n");
         printf("Wpisz numer z listy i wcisnij klawisz ""Enter"" aby kontynuowac\n\n");
         printf("1- Instrukcja\n");
         printf("2- Gra\n");
+        printf("3- Dodawanie nowych slow do kategorii\n");
         scanf("%d", &menu1);
         printf("\n");
-   while(menu1!=1 && menu1!=2)
+   while(menu1!=1 && menu1!=2 && menu1!=3)
         {
             printf("Zla opcja, prosze wybierz numer z listy\n");
             scanf("%d", &menu1);
@@ -105,11 +51,13 @@ int main()
             
         }
 
+        
+
         while(menu1==1)
         {
         printf("\n");
-        printf("Wisielec  – gra polegająca na odgadywaniu słów. Gracz stara się odgadnąć litery słowa losowo wybranego przez program.\n Za każdym razem, gdy mu się to uda, program wstawia literę w odpowiednie miejsce; w przeciwnym wypadku program dodaje +1 do liczby popelnionych bledow.\n Jezeli gracz odgadnie haslo zanim liczba bledow wyniesie 5 wygrywa.\n Wszystkie slowa skladaja sie z wylacznie malych liter.\n Dostepne sa 2 kola ratunkowe - aby je wybrac wpisz odpowiadajacy mu numer \n Kolo 1 - zmniejsza liczbe popelnionych bledow o 1. \n Kolo 2 - Wyswietla pierwsza literke slowa (jezeli literka sie powtarza, wyswietla kazde jej powtorzenie)\n");
-        printf("Wcisnij ""Enter"" aby kontynuowac\n\n");
+        printf("Wisielec  – gra polegająca na odgadywaniu słów. Gracz stara się odgadnąć litery słowa losowo wybranego przez program.\n Za każdym razem, gdy mu się to uda, program wstawia literę w odpowiednie miejsce; w przeciwnym wypadku program dodaje +1 do liczby popelnionych bledow.\n Jezeli gracz odgadnie haslo zanim liczba bledow wyniesie 5 wygrywa.\n Wszystkie slowa skladaja sie wylacznie z malych liter.\n Dostepne sa 2 kola ratunkowe - aby je wybrac wpisz odpowiadajacy mu numer \n Kolo 1 - zmniejsza liczbe popelnionych bledow o 1. \n Kolo 2 - Wyswietla pierwsza literke slowa (jezeli literka sie powtarza, wyswietla kazde jej powtorzenie)\n Gra daje mozliwosc dodawania nowych slow do istniejacych kategorii.\n Uprzejmie prosze, dodawaj slowa z rozsadkiem, zeby nie zepsuc sobie zabawy.\n Raczej nikt nie spodziewa sie \"orangutana\" w kategorii \"przedmioty codziennego uzytku\" :)\n");
+        printf("\n Wcisnij ""Enter"" aby kontynuowac\n\n");
         
         getchar();
         getchar();
@@ -118,11 +66,31 @@ int main()
         printf("Wpisz numer z listy i wcisnij klawisz ""Enter"" aby kontynuowac\n");
         printf("1- Instrukcja\n");
         printf("2- Gra\n");
+        printf("3-Dodawanie nowych slow do kategorii\n");
         scanf("%d", &menu1);
         }
         printf("\n\n\n\n\n\n");
      
+        if(menu1==3)
+        {
+                int kategoria1=0;
+                printf("Wybierz numer kategorii do ktorej chcesz dodac slowo:");
+                printf("Dostepne kategorie:\n1-zwierzeta\n2-przedmioty uzytku codziennego\n");
+                scanf("%d", &kategoria1);
+                getchar();
+                    while(kategoria1!=1 && kategoria1!=2)
+                    {
+                        printf("Blednie wybrana kategoria, prosze, wybierz sposrod dostepnych\n");
+                        printf("Dostepne kategorie:\n1-zwierzeta\n2-przedmioty uzytku codziennego\n");
+                        printf("Wybierz numer kategorii do ktorej chcesz dodac slowo:");
+                        scanf("%d", &kategoria1);
+                        getchar();
+                    }
 
+            dopisywanie(kategoria1);
+            goto menu;
+            
+        }
         if(menu1==2)
 {       
 
@@ -142,6 +110,8 @@ int main()
         int kolo1=0; // kolo1= 0 - kolo 1 niewykorzystane / 1 = wykorzystane
         int kolo2=0; // kolo2= 0 kolo 2 niewykorzystane / 2 = wykorzystane
         char darmowaliterka; // po wybraniu kola 2 darmowaliterka = pierwsza litera, nastepnie nastepuje sprawdzenie czy literka sie nie powtarza.
+        char literkabyla[100]={0}; // tabela z literkami juz wpisanymi przez uzytkownika.
+        int literkabylaindeks=0; // indeks do tabeli z literkami juz wpisywanymi przez uzytkownika
 
         printf("Wybierz kategorie!\n");
         printf("Kategorie:\n 1-Zwierzeta\n 2-Przedmioty uzytku codziennego \n\n\n\n\n");
@@ -215,7 +185,7 @@ int main()
         {
             if(lbledow==5)
             {
-                printf("Niestety! Maksymalna liczba bledow :( Poszukiwane slowo to - %s . Koniec gry.", slowo);
+                printf("Niestety! Maksymalna liczba bledow :( Poszukiwane slowo to - %sKoniec gry.\n", slowo);
                 return 0;
             }
             printf("Slowo do odgadniecia %s \n", zakslowo);
@@ -229,7 +199,7 @@ int main()
         {
             if(kolo1==0)
             {
-                printf("Korzystasz z kola ratunkowego 1 ! Dodatkowa szansa! Liczba bledow to %d \n\n", lbledow);
+                printf("Korzystasz z kola ratunkowego 1 ! Dodatkowa szansa! Liczba bledow to %d \n\n", lbledow-1);
                 lbledow--;
                 kolo1++;
             }
@@ -252,8 +222,18 @@ int main()
             }
 
         }
-                while(n!=plliter) // PETLA SPRAWDZAJACA CZY DANA LITERKA JUZ WYSTEPOWALA
+                while(n!=plliter) // PETLA SPRAWDZAJACA CZY DANA LITERKA JUZ WYSTEPOWALA LUB BYLA PODANA PRZEZ UZYTKOWNIKA
                 {
+                    for(int spr=0; spr!=literkabylaindeks; spr++)
+                    {
+                        if(literka==literkabyla[spr])
+                        {
+                            printf("Juz wybrales ta literke! Wybierz inna!\n");
+                        scanf("%c", &literka);
+                        getchar();
+
+                        }
+                    }
                     while(literka==zakslowo[n])
                     {
                      printf("Juz wybrales ta literke! Wybierz inna!");
@@ -302,9 +282,9 @@ int main()
             if(bb==0 && literka!='1' && literka!='2')
             {
                 lbledow++;
-                printf("Blad! Liczba bledow=%d\n", lbledow);
+                printf("Blad! Liczba bledow=%d\n\n\n", lbledow);
                 szubienica(lbledow);
-                printf("\n\n\n\n\n\n\n");
+                printf("\n\n\n\n\n");
             }
 
         i=0;
@@ -312,17 +292,22 @@ int main()
 
               if(lliter<=0)
         {
-            printf("Brawo! Wygrales/Wygralas! Poszukiwane slowo to - %s -\n Koniec gry :)", zakslowo);
+            printf("Brawo! Wygrales/Wygralas! Poszukiwane slowo to - %s -\n Koniec gry :)\n", zakslowo);
             return 0;
         }
 
-
+        literkabyla[literkabylaindeks]=literka;
+        literkabylaindeks++;
         }
   
  }
 
-
     }
+
+
+
+
+
 
     if(jezyk==2) // JEZYK ANGIELSKI
     {// MENU
@@ -427,5 +412,96 @@ int main()
         }
   
     }
+
+}
+
+void szubienica(int bledy)
+{
+//SZUBIENICA PROTOTYP
+    if(bledy==1)
+    {
+    printf("__________\n");
+    printf("|        |\n");
+    printf("¯¯¯¯¯¯¯¯¯¯");
+    }
+
+    if(bledy==2)
+{
+    printf("     |     \n");
+    printf("     |     \n");
+    printf("     |     \n");
+    printf("     |     \n");
+    printf("     |     \n");
+    printf("__________\n");
+    printf("|        |\n");
+    printf("¯¯¯¯¯¯¯¯¯¯");
+}
+    if(bledy==3)
+    {
+    printf("      ______\n");
+    printf("     |     |\n");
+    printf("     |     |\n");
+    printf("     |     \n");
+    printf("     |     \n");
+    printf("     |     \n");
+    printf("__________\n");
+    printf("|        |\n");
+    printf("¯¯¯¯¯¯¯¯¯¯");
+    }
+        if(bledy==4)
+    {
+    printf("      ______\n");
+    printf("     |     |\n");
+    printf("     |     |\n");
+    printf("     |    (¯)\n");
+    printf("     |     \n");
+    printf("     |     \n");
+    printf("__________\n");
+    printf("|        |\n");
+    printf("¯¯¯¯¯¯¯¯¯¯");
+    }
+        if(bledy==5)
+    {
+    printf("      ______\n");
+    printf("     |     |\n");
+    printf("     |     |\n");
+    printf("     |    (¯)\n");
+    printf("     |     |\n");
+    printf("     |    / \\ \n");
+    printf("__________\n");
+    printf("|        |\n");
+    printf("¯¯¯¯¯¯¯¯¯¯");
+
+    }
+
+}
+
+void dopisywanie(int kategoria1)
+{
+    if(kategoria1==1)
+    {
+    FILE* fp =NULL;
+    fp=fopen("zwierzeta.txt", "a");
+    char slowo[100]={0};
+    printf("Podaj nowe slowo. Aby zakonczyc wpisywanie podaj #\n");
+    while ((fscanf(stdin,"%99s",slowo) ==1) && (slowo[0]!= '#') )
+    fprintf(fp,"%s",slowo);
+    fprintf(fp, "\n");
+    printf("Dziekuje, slowo zostalo dodane :)\n\n\n\n");
+    fclose(fp);
+    }
+    if(kategoria1==2)
+    {
+        FILE* fp =NULL;
+    fp=fopen("przedmioty.txt", "a");
+    char slowo[100]={0};
+    printf("Podaj nowe slowo. Aby zakonczyc wpisywanie podaj #\n");
+    while ((fscanf(stdin,"%99s",slowo) ==1) && (slowo[0]!= '#') )
+    fprintf(fp,"%s",slowo);
+    printf("Dziekuje, slowo zostalo dodane :)\n\n\n\n");
+    fclose(fp);
+
+    }
+   
 
 }

@@ -1,0 +1,16 @@
+krzeslo
+lampa
+monitor
+komputer
+zlew
+kanapa
+stol
+umywalka
+szafa
+biurko
+grzebien
+szczotka
+odkurzacz
+blender
+czajnik
+laptop
