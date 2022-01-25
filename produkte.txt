@@ -1,0 +1,15 @@
+sessel
+lampe
+monitor
+computer
+couch
+tabelle
+waschbecken
+schrank
+pult
+kamm
+burste
+staubsauger
+mixer
+wasserkocher
+laptop

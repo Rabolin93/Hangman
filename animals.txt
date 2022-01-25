@@ -1,0 +1,17 @@
+cat
+cow
+fox
+seal
+pinguin
+lion
+orangutan
+chinchilla
+dog
+hamster
+shark
+raven
+crow
+chimpanzee
+mouse
+kangaroo
+gorilla

@@ -1,0 +1,13 @@
+chair
+lamp
+monitor
+sink
+sofa
+table
+wardrobe
+desk
+comb
+brush
+blender
+kettle
+laptop
